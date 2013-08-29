@@ -24,8 +24,8 @@
 (global-set-key (kbd "M-g") 'goto-line)
 (global-set-key (kbd "C-q") 'goto-last-change)
 
-(global-set-key (kbd "C-x s") 'save-buffer)
-(global-set-key (kbd "C-x C-s") 'save-some-buffers)
+(global-set-key (kbd "C-x C-s") 'save-buffer)
+(global-set-key (kbd "C-x s") 'save-some-buffers)
 
 (global-set-key (kbd "C-c c") 'ac-start)
 
@@ -50,8 +50,6 @@
 
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C-+") 'text-scale-decrease)
-
-(global-set-key (kbd "C-;") 'psw-switch-buffer)
 
 (global-set-key (kbd "<f7>") 'start-kbd-macro)
 (global-set-key (kbd "<f8>") 'kmacro-end-or-call-macro)
