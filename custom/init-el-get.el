@@ -32,6 +32,7 @@
    scala-mode2
    popup-switcher
    emacs-nav
+   expand-region
    ))
 
 (el-get 'sync my:el-get-packages)
