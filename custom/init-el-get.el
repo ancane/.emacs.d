@@ -4,12 +4,7 @@
 ;; Init files
 (setq el-get-user-package-directory "~/.emacs.d/el-get-init")
 
-;(unless (require 'el-get nil 'noerror)
-;  (with-current-buffer
-;    (url-retrieve-synchronously "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-;    (goto-char (point-max))
-;    (eval-print-last-sexp)))
-
+;; El-get from master branch
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
       (url-retrieve-synchronously
@@ -18,6 +13,8 @@
       (goto-char (point-max))
       (eval-print-last-sexp))))
 
+;; Own recipes
+(add-to-list 'el-get-recipe-path "~/.emacs.d/custom/recipes")
 
 (setq
  my:el-get-packages
@@ -33,6 +30,8 @@
    zencoding-mode
    ensime
    scala-mode2
+   popup-switcher
+   emacs-nav
    ))
 
 (el-get 'sync my:el-get-packages)
