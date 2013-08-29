@@ -1,0 +1,22 @@
+# Dirs
+url/
+backups/
+auto-save-list/
+archives/
+elpa/archives/
+eshell/
+
+# Files
+places
+ido.last
+.smex-items
+*.dat
+*~
+*#
+.#*
+!.#
+.ensime
+.ensime_lucene
+TAGS
+
+el-get/
