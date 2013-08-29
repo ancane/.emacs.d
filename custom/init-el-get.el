@@ -33,6 +33,7 @@
    popup-switcher
    emacs-nav
    expand-region
+   powerline
    ))
 
 (el-get 'sync my:el-get-packages)
