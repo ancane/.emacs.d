@@ -5,8 +5,12 @@ auto-save-list/
 archives/
 elpa/archives/
 eshell/
+el-get/
 
 # Files
+.emacs.desktop
+.emacs.desktop.lock
+*.elc
 places
 ido.last
 .smex-items
@@ -19,4 +23,4 @@ ido.last
 .ensime_lucene
 TAGS
 
-el-get/
+
