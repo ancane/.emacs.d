@@ -20,8 +20,14 @@
 (add-to-list 'default-frame-alist '(font . "-xos4-terminus-bold-*-normal-*-18-180-72-72-c-100-koi8-r"))
 (set-default-font "-xos4-terminus-bold-*-normal-*-18-180-72-72-c-100-koi8-r")
 
+;; Custom init files
+(add-to-list 'load-path "~/.emacs.d/custom")
+
 ;; El-get
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
+;; Init files
+(setq el-get-user-package-directory "~/.emacs.d/el-get-init")
 
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer 
@@ -29,7 +35,6 @@
     (goto-char (point-max))
     (eval-print-last-sexp)))
 
-(setq el-get-user-package-directory "~/.emacs.d/custom")
 
 (setq
  my:el-get-packages
@@ -89,6 +94,10 @@
 (prefer-coding-system 'utf-8-unix)
 
 (setq default-input-method 'russian-computer)
+
+;; Load custom init files
+(load "init-ibuffer.el")
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
