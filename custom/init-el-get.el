@@ -40,6 +40,7 @@
    flx   ;; Ido flex matching
    move-text
    goto-last-change
+   undo-tree
    ))
 
 (el-get 'sync my:el-get-packages)

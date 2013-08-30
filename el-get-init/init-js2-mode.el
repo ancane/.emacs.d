@@ -14,7 +14,6 @@
 
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
 
-
 ;; Lets try tern mode
 (add-to-list 'load-path "~/tern/emacs/")
 (autoload 'tern-mode "tern.el" nil t)

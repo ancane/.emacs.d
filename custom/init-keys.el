@@ -1,8 +1,6 @@
 (global-set-key (kbd "<home>") 'back-to-indentation-or-beginning)
 (global-set-key (kbd "<end>") 'end-of-line)
 
-(global-set-key (kbd "C-z") 'undo)
-(global-set-key (kbd "C-S-z") 'redo)
 (global-set-key (kbd "C-x C-z") 'ignore)
 
 (global-set-key (kbd "C-k") 'kill-and-join-forward)
@@ -11,8 +9,6 @@
 (global-set-key (kbd "<f5>") 'previous-buffer)
 (global-set-key (kbd "<f6>") 'next-buffer)
 
-(global-set-key (kbd "C-f") 'isearch-forward)
-(global-set-key (kbd "C-S-f") 'isearch-backward)
 (define-key isearch-mode-map (kbd "C-o") 'isearch-occur)
 
 (global-set-key (kbd "M-<f3>")  'yank-thing-into-search)
@@ -24,12 +20,11 @@
 (global-set-key (kbd "M-g") 'goto-line)
 
 (global-set-key (kbd "C-x C-s") 'save-buffer)
-(global-set-key (kbd "C-x s") 'save-some-buffers)
+(global-set-key (kbd "C-x s")   'save-some-buffers)
 
 (global-set-key (kbd "C-c c") 'ac-start)
 
-(global-set-key (kbd "C-\\") 'comment-or-uncomment-region)
-
+(global-set-key (kbd "C-\\")    'comment-or-uncomment-region)
 (global-set-key (kbd "C-c C-c") 'comment-or-uncomment-region)
 
 
@@ -41,7 +36,7 @@
 
 (global-set-key (kbd "M-S-<down>") 'duplicate-start-of-line-or-region)
 
-(global-set-key (kbd "<print>") 'helm-mini)
+;(global-set-key (kbd "<print>") 'helm-mini)
 
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C-+") 'text-scale-decrease)
