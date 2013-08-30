@@ -39,6 +39,7 @@
    paredit
    flx   ;; Ido flex matching
    move-text
+   goto-last-change
    ))
 
 (el-get 'sync my:el-get-packages)
