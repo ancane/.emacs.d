@@ -43,6 +43,7 @@
    old-fashioned-undo
    haskell-mode
    projectile
+   web-mode
    ))
 
 (el-get 'sync my:el-get-packages)
