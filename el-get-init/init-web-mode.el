@@ -15,6 +15,7 @@
     (setq web-mode-script-padding       1)
     (setq web-mode-block-padding        0)
     (local-unset-key (kbd "C-;"))
+    (zencoding-mode)
     )
   )
 
