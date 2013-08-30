@@ -33,7 +33,7 @@
    popup-switcher
    emacs-nav
    expand-region
-   powerline
+   emacs-powerline ; TODO replace with original powerline if my pull request is accepted
    ))
 
 (el-get 'sync my:el-get-packages)
