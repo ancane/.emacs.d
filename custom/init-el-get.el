@@ -36,6 +36,7 @@
    emacs-powerline ; TODO replace with original powerline if my pull request is accepted
    auto-complete
    elisp-slime-nav
+   paredit
    ))
 
 (el-get 'sync my:el-get-packages)
