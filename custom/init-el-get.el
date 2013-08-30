@@ -33,10 +33,11 @@
    popup-switcher
    emacs-nav
    expand-region
-   emacs-powerline ; TODO replace with original powerline if my pull request is accepted
+   emacs-powerline ;; TODO replace with original powerline if my pull request is accepted
    auto-complete
    elisp-slime-nav
    paredit
+   flx   ;; Ido flex matching
    ))
 
 (el-get 'sync my:el-get-packages)

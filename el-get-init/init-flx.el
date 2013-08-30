@@ -1,9 +1,17 @@
 (require 'ido)
+(require 'flx-ido)
 (require 'recentf)
 
-(ido-mode 'both)
+(ido-mode t)
+(ido-everywhere t)
 (ido-ubiquitous t)
-(recentf-mode 1)
+
+(flx-ido-mode t)
+;; disable ido faces to see flx highlights.
+(setq ido-use-faces nil)
+(setq flx-ido-use-faces nil)
+
+(recentf-mode t)
 (ido-yes-or-no-mode)
 
 (setq recentf-max-saved-items 20)
@@ -17,7 +25,6 @@
        ido-max-prospects 10
        ido-use-filename-at-point (quote guess)
        ido-use-virtual-buffers t
-       ido-handle-duplicate-virtual-buffers 2
-       )
+       ido-handle-duplicate-virtual-buffers 2)
 
 (global-set-key (kbd "C-x C-r") 'ido-recentf-open)

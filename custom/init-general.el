@@ -101,3 +101,6 @@
 
 ;; Seed the random-number generator
 (random t)
+
+;; GC tuning: start after every new 20Mb allocated
+(setq gc-cons-threshold 20000000)

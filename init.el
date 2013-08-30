@@ -21,5 +21,4 @@
 (load "init-el-get.el")
 (load "init-func.el")
 (load "init-ibuffer.el")
-(load "init-ido.el")
 (load "init-keys.el")
