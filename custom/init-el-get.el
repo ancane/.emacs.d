@@ -30,7 +30,7 @@
    zencoding-mode
    ensime
    scala-mode2
-   popup-switcher
+   popup-switcher ; popup dependency is installed via package.el
    emacs-nav
    expand-region
    emacs-powerline ;; TODO replace with original powerline if my pull request is accepted
@@ -40,7 +40,9 @@
    flx   ;; Ido flex matching
    move-text
    goto-last-change
-   undo-tree
+   old-fashioned-undo
+   haskell-mode
+   projectile
    ))
 
 (el-get 'sync my:el-get-packages)
