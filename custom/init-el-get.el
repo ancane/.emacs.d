@@ -38,6 +38,7 @@
    elisp-slime-nav
    paredit
    flx   ;; Ido flex matching
+   move-text
    ))
 
 (el-get 'sync my:el-get-packages)

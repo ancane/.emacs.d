@@ -44,10 +44,6 @@
 
 (global-set-key (kbd "<print>") 'helm-mini)
 
-
-(global-set-key (kbd "C-M-<up>") 'move-text-up)
-(global-set-key (kbd "C-M-<down>") 'move-text-down)
-
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C-+") 'text-scale-decrease)
 

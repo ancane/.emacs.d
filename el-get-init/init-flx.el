@@ -1,9 +1,10 @@
 (require 'ido)
 (require 'flx-ido)
 (require 'recentf)
+(require 'ido-ubiquitous)
+(require 'ido-yes-or-no)
 
 (ido-mode t)
-(ido-everywhere t)
 (ido-ubiquitous t)
 
 (flx-ido-mode t)
