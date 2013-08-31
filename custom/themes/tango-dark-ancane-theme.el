@@ -8,7 +8,7 @@
 (custom-theme-set-faces
  'tango-dark-ancane
  '(cursor ((t (:background "#fce94f"))))
- '(fringe ((((class color) (min-colors 89)) (:background "#212526"))))
+ '(fringe ((((class color) (min-colors 89)) (:background "#2e3436"))))
  '(highlight ((t (:background "#3F413D"))))
  '(region ((t (:background "#555753"))))
  '(secondary-selection ((((class color) (min-colors 89)) (:background "#204a87"))))
