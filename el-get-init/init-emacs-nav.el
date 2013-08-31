@@ -5,14 +5,18 @@
 
 (add-hook 'psw-after-switch-hook 'nav-jump-to-current-dir)
 
+;;;;;;;;;; Lynx-like motion for nav
+
 (defface nav-hl-line
   '((t :background "#777777"))
-
   "Custom face for highlighting the current line in nav mode."
   :version "22.1"
   :group 'hl-line)
 
-;; Lynx-like motion for nav
+
+;; This allows global-hl-line be disabled for certain buffers
+(make-variable-buffer-local 'global-hl-line-mode)
+
 (defun nav-mode-hl-hook ()
   (setq global-hl-line-mode nil)
   (set (make-local-variable 'hl-line-face) 'nav-hl-line)
@@ -22,3 +26,4 @@
   )
 
 (add-hook 'nav-mode-hook 'nav-mode-hl-hook)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -44,6 +44,7 @@
    haskell-mode
    projectile
    web-mode
+   markdown-mode
    ))
 
 (el-get 'sync my:el-get-packages)
