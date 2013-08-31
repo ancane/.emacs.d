@@ -6,4 +6,10 @@
 (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
 (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
-(add-hook 'scheme-mode-hook           #'enable-paredit-)
+(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+
+(eval-after-load "paredit"
+  '(progn
+    (define-key paredit-mode-map (kbd "M-<up>"  ) nil)
+    (define-key paredit-mode-map (kbd "M-<down>") nil)
+    ))

@@ -62,6 +62,10 @@
 ;; Highlits current line
 (global-hl-line-mode)
 
+;; This allows global-hl-line be disabled for certain buffers
+(make-variable-buffer-local 'global-hl-line-mode)
+(make-variable-buffer-local 'hl-line-face)
+
 ;; No ring or visual warnings
 (setq ring-bell-function 'ignore)
 
