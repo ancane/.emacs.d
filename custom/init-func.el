@@ -113,3 +113,11 @@
 		(or (current-word) ""))))
     (when (> (length text) 0) (isearch-update-ring text) (setq ancane-search-at-point-wrap nil)
 	  (ancane-search-at-point-forward))))
+
+;; New buffer
+(defun new-empty-buffer ()
+  (interactive)
+  (switch-to-buffer (generate-new-buffer "untitled"))
+  (funcall (and initial-major-mode))
+  (setq buffer-offer-save t)
+  )
