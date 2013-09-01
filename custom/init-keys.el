@@ -44,4 +44,4 @@
 (global-set-key (kbd "<f7>") 'start-kbd-macro)
 (global-set-key (kbd "<f8>") 'kmacro-end-or-call-macro)
 
-(global-set-key (kbd "C-n") 'new-empty-buffer)
+(global-set-key (kbd "C-c n") 'new-empty-buffer)

@@ -2,6 +2,8 @@
 (require 'hl-line)
 
 (global-set-key (kbd "<f12>") 'nav-toggle)
+(global-set-key (kbd "C-n")   'nav-toggle)
+;(global-set-key (kbd "M-n")   'nav-toggle)
 
 (add-hook 'psw-after-switch-hook 'nav-jump-to-current-dir)
 
