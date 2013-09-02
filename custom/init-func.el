@@ -6,14 +6,6 @@
     (kill-line arg)))
 
 
-(defun ido-recentf-open ()
-  "Use `ido-completing-read' to \\[find-file] a recent file"
-  (interactive)
-  (if (find-file (ido-completing-read "Find recent file: " recentf-list))
-      (message "Opening file...")
-    (message "Aborting")))
-
-
 (defun back-to-indentation-or-beginning ()
   (interactive)
   (if (or (looking-back "^\s*")
@@ -73,14 +65,48 @@
       (insert text)
       (open-line 1))))
 
-(defun duplicate-region ()
-  (let* ((end (region-end))
-         (text (buffer-substring (region-beginning) end)))
-    (goto-char end)
-    (insert text)
-    (push-mark end)
-    (setq deactivate-mark nil)
-    (exchange-point-and-mark)))
+(defun duplicate-region (&optional num start end)
+  "Duplicates the region bounded by START and END NUM times.
+If no START and END is provided, the current region-beginning and
+region-end is used."
+  (interactive "p")
+  (save-excursion
+    (let* ((start (or start (region-beginning)))
+	   (end (or end (region-end)))
+	   (region (buffer-substring start end)))
+      (goto-char end)
+      (dotimes (i num)
+	(insert region)))))
+
+(defun duplicate-current-line (&optional num)
+  "Duplicate the current line NUM times."
+  (interactive "p")
+  (save-excursion
+    (when (eq (point-at-eol) (point-max))
+      (goto-char (point-max))
+      (newline)
+      (forward-char -1))
+    (duplicate-region num (point-at-bol) (1+ (point-at-eol)))))
+
+
+(defun duplicate-current-line-or-region (arg)
+  "Duplicates the current line or region ARG times.
+If there's no region, the current line will be duplicated."
+  (interactive "p")
+  (if (region-active-p)
+      (let ((beg (region-beginning))
+            (end (region-end)))
+        (duplicate-region arg beg end)
+        (one-shot-keybinding "d" (λ (duplicate-region 1 beg end))))
+    (duplicate-current-line arg)
+    (one-shot-keybinding "d" 'duplicate-current-line)))
+
+(defun one-shot-keybinding (key command)
+  (set-temporary-overlay-map
+   (let ((map (make-sparse-keymap)))
+     (define-key map (kbd key) command)
+     map) t))
+
 
 
 (setq ancane-search-at-point-wrap nil)
@@ -121,3 +147,16 @@
   (funcall (and initial-major-mode))
   (setq buffer-offer-save t)
   )
+
+(defun delete-current-buffer-file ()
+  "Removes file connected to current buffer and kills buffer."
+  (interactive)
+  (let ((filename (buffer-file-name))
+        (buffer (current-buffer))
+        (name (buffer-name)))
+    (if (not (and filename (file-exists-p filename)))
+        (ido-kill-buffer)
+      (when (yes-or-no-p "Are you sure you want to remove this file? ")
+        (delete-file filename)
+        (kill-buffer buffer)
+        (message "File '%s' successfully removed" filename)))))

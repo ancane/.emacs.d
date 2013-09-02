@@ -34,9 +34,8 @@
 (global-set-key (kbd "M-3") 'split-window-right)
 
 
-(global-set-key (kbd "M-S-<down>") 'duplicate-start-of-line-or-region)
+(global-set-key (kbd "M-S-<down>") 'duplicate-current-line-or-region)
 
-;(global-set-key (kbd "<print>") 'helm-mini)
 
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C-+") 'text-scale-decrease)
@@ -45,3 +44,5 @@
 (global-set-key (kbd "<f8>") 'kmacro-end-or-call-macro)
 
 (global-set-key (kbd "C-c n") 'new-empty-buffer)
+
+(global-set-key (kbd "M-z") 'zap-to-char)
