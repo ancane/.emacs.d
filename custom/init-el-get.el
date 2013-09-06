@@ -45,6 +45,7 @@
    projectile
    web-mode
    markdown-mode
+   magit
    ))
 
 (el-get 'sync my:el-get-packages)
