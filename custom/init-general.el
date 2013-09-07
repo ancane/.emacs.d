@@ -98,3 +98,5 @@
 (setq gc-cons-threshold 20000000)
 
 (setq fill-column 80)
+
+(require 'midnight)

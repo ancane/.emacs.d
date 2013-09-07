@@ -160,3 +160,13 @@ If there's no region, the current line will be duplicated."
         (delete-file filename)
         (kill-buffer buffer)
         (message "File '%s' successfully removed" filename)))))
+
+(defun split-and-goto-window-below ()
+  (interactive)
+  (split-window-below)
+  (other-window 1))
+
+(defun split-and-goto-window-right ()
+  (interactive)
+  (split-window-right)
+  (other-window 1))

@@ -30,8 +30,8 @@
 
 (global-set-key (kbd "M-0") 'delete-window)
 (global-set-key (kbd "M-1") 'delete-other-windows)
-(global-set-key (kbd "M-2") 'split-window-below)
-(global-set-key (kbd "M-3") 'split-window-right)
+(global-set-key (kbd "M-2") 'split-and-goto-window-below)
+(global-set-key (kbd "M-3") 'split-and-goto-window-right)
 
 
 (global-set-key (kbd "M-S-<down>") 'duplicate-current-line-or-region)
