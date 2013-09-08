@@ -1,5 +1,0 @@
-(:name popup-switcher
-       :description "Provides (yet another) convenient way to switch buffers"
-       :type github
-       :depends popup
-       :pkgname "kostafey/popup-switcher")

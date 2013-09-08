@@ -30,7 +30,7 @@
    zencoding-mode
    ensime
    scala-mode2
-   popup-switcher ; popup dependency is installed via package.el
+   popup-switcher
    emacs-nav
    expand-region
    emacs-powerline ;; TODO replace with original powerline if my pull request is accepted
