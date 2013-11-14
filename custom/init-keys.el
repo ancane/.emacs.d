@@ -2,6 +2,8 @@
 (global-set-key (kbd "<end>") 'end-of-line)
 
 (global-set-key (kbd "C-x C-z") 'ignore)
+(global-set-key (kbd "C-x C-c") 'ignore)
+
 
 (global-set-key (kbd "C-k") 'kill-and-join-forward)
 (global-set-key (kbd "C-a") 'mark-whole-buffer)

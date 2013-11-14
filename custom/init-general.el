@@ -85,7 +85,9 @@
 (setq default-input-method 'russian-computer)
 
 (add-hook 'before-save-hook
-          '(lambda () (delete-trailing-whitespace)))
+          '(lambda ()
+             (untabify (point-min) (point-max))
+             (delete-trailing-whitespace)))
 
 (show-paren-mode 1)
 
