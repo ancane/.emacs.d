@@ -46,6 +46,7 @@
    web-mode
    markdown-mode
    magit
+   less-css-mode
    ))
 
 (el-get 'sync my:el-get-packages)
