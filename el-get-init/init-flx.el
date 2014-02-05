@@ -2,7 +2,7 @@
 (require 'flx-ido)
 (require 'recentf)
 (require 'ido-ubiquitous)
-(require 'ido-yes-or-no)
+;(require 'ido-yes-or-no)
 
 (ido-mode t)
 (ido-ubiquitous t)
@@ -13,7 +13,7 @@
 (setq flx-ido-use-faces nil)
 
 (recentf-mode t)
-(ido-yes-or-no-mode)
+;(ido-yes-or-no-mode)
 
 (setq recentf-max-saved-items 20)
 
