@@ -48,3 +48,6 @@
 (global-set-key (kbd "C-c n") 'new-empty-buffer)
 
 (global-set-key (kbd "M-z") 'zap-to-char)
+
+(global-set-key (kbd "M-^") 'just-no-space)
+(global-set-key (kbd "M-&") 'delete-indentation)

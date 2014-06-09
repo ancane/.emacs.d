@@ -9,7 +9,7 @@
 (defun back-to-indentation-or-beginning ()
   (interactive)
   (if (or (looking-back "^\s*")
-	  (eq last-command 'back-to-indentation-or-beginning))
+          (eq last-command 'back-to-indentation-or-beginning))
       (beginning-of-line)
     (back-to-indentation)))
 
@@ -72,11 +72,11 @@ region-end is used."
   (interactive "p")
   (save-excursion
     (let* ((start (or start (region-beginning)))
-	   (end (or end (region-end)))
-	   (region (buffer-substring start end)))
+           (end (or end (region-end)))
+           (region (buffer-substring start end)))
       (goto-char end)
       (dotimes (i num)
-	(insert region)))))
+        (insert region)))))
 
 (defun duplicate-current-line (&optional num)
   "Duplicate the current line NUM times."
@@ -119,8 +119,8 @@ If there's no region, the current line will be duplicated."
       (setq ancane-search-at-point-wrap nil))
     (setq newpoint (search-forward text nil t direction))
     (if newpoint
-	(set-mark (if (= direction 1) (- newpoint (length text))
-		    (+ newpoint (length text))))
+        (set-mark (if (= direction 1) (- newpoint (length text))
+                    (+ newpoint (length text))))
       (message "No more: %s" text) (ding)
       (setq ancane-search-at-point-wrap text))))
 
@@ -135,10 +135,10 @@ If there's no region, the current line will be duplicated."
 (defun yank-thing-into-search ()
   (interactive)
   (let ((text (if mark-active
-		  (buffer-substring-no-properties (region-beginning)(region-end))
-		(or (current-word) ""))))
+                  (buffer-substring-no-properties (region-beginning)(region-end))
+                (or (current-word) ""))))
     (when (> (length text) 0) (isearch-update-ring text) (setq ancane-search-at-point-wrap nil)
-	  (ancane-search-at-point-forward))))
+          (ancane-search-at-point-forward))))
 
 ;; New buffer
 (defun new-empty-buffer ()
@@ -170,3 +170,9 @@ If there's no region, the current line will be duplicated."
   (interactive)
   (split-window-right)
   (other-window 1))
+
+(defun just-no-space ()
+  (interactive)
+  (delete-indentation)
+  (delete-horizontal-space)
+)
