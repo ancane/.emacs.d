@@ -1,0 +1,4 @@
+(:name old-fashioned-undo
+       :description "Undo/Redo in very simple, and old fashioned way"
+       :type emacswiki
+       :website "http://www.emacswiki.org/emacs/old-fashioned-undo.el")

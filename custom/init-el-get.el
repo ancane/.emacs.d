@@ -28,8 +28,6 @@
    ido-ubiquitous
    smex
    zencoding-mode
-   ensime
-   scala-mode2
    popup-switcher
    emacs-nav
    expand-region
@@ -47,6 +45,7 @@
    markdown-mode
    magit
    less-css-mode
+   ensime
    ))
 
 (el-get 'sync my:el-get-packages)
