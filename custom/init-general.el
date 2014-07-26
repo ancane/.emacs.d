@@ -102,3 +102,5 @@
 (setq fill-column 80)
 
 (require 'midnight)
+
+(electric-pair-mode t)
