@@ -22,15 +22,15 @@
    color-theme
    color-theme-tango-2
    ace-jump-mode
-   ido-yes-or-no
+   emacs-ido-yes-or-no
+   ido-ubiquitous
    js2-mode
    mark-multiple
-   ido-ubiquitous
    smex
    zencoding-mode
    popup-switcher
-   emacs-nav
    expand-region
+   emacs-nav
    emacs-powerline ;; TODO replace with original powerline if my pull request is accepted
    auto-complete
    elisp-slime-nav
