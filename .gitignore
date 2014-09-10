@@ -20,7 +20,7 @@ ido.last
 .#*
 !.#
 .ensime
-.ensime_lucene
+.ensime_cache
 TAGS
 projectile-bookmarks.eld
 tramp

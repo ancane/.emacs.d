@@ -45,6 +45,8 @@
    markdown-mode
    magit
    less-css-mode
+   websocket
+   realtime-markdown-viewer
    ensime
    ))
 
