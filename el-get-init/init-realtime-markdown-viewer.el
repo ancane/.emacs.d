@@ -9,7 +9,7 @@
         (goto-char (point-min))
         (push-mark)
         (goto-char (point-max))
-        (kill-region (mark) (point))
+        (delete-region (mark) (point))
         (insert-buffer oldbuf)
         (ancane-markdown-replace-code-syntax)
         (ancane-markdown-replace-table-syntax)
@@ -31,7 +31,7 @@
     (end-of-paragraph-text)
     (let* ((text (buffer-substring (mark) (point)))
            (lines (split-string text "\n")))
-      (kill-region (mark) (point))
+      (delete-region (mark) (point))
       (insert
        (concat
         "<table>\n"
