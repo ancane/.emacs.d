@@ -46,6 +46,7 @@
    magit
    less-css-mode
    websocket
+   exec-path-from-shell
    realtime-markdown-viewer
    ensime
    ))

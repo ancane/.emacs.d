@@ -1,0 +1,5 @@
+(:name exec-path-from-shell
+       :description "exec-path-from-shell"
+       :type github
+       :website "https://github.com/purcell/exec-path-from-shell.git"
+       :pkgname "purcell/exec-path-from-shell")
