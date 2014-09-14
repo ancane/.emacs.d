@@ -19,6 +19,7 @@
 (setq
  my:el-get-packages
  '(el-get
+   websocket
    color-theme
    color-theme-tango-2
    ace-jump-mode
@@ -43,11 +44,10 @@
    projectile
    web-mode
    markdown-mode
+   markdown-preview-mode
    magit
    less-css-mode
-   websocket
    exec-path-from-shell
-   realtime-markdown-viewer
    ensime
    ))
 

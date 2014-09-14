@@ -1,5 +1,0 @@
-(:name realtime-markdown-viewer
-       :description "Emacs Realtime Markdown Viewer with websocket.el and Amon2"
-       :type github
-       :website "https://github.com/ancane/emacs-realtime-markdown-viewer.git"
-       :pkgname "ancane/emacs-realtime-markdown-viewer")
