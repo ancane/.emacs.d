@@ -176,3 +176,14 @@ If there's no region, the current line will be duplicated."
   (delete-indentation)
   (delete-horizontal-space)
 )
+
+(defun create-scala-tags (dir-name)
+  "Create tags file."
+  (interactive "DDirectory: ")
+  (let* ((working-dir default-directory))
+    (setq default-directory dir-name)
+    (eshell-command
+     (format "find %s -not -path \"./target/*\" -not -path \"./.git/*\" -type f -iname \"*.scala\" | etags --regex=%s -" dir-name (concat "@" (expand-file-name "~") "/etags.scala")))
+    (setq default-directory working-dir)
+    )
+  )
