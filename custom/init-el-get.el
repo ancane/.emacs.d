@@ -49,6 +49,7 @@
    less-css-mode
    exec-path-from-shell
    ensime
+   etags-select
    ))
 
 (el-get 'sync my:el-get-packages)
