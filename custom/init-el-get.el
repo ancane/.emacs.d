@@ -50,6 +50,8 @@
    exec-path-from-shell
    ensime
    etags-select
+   org-mode
+   o-blog
    ))
 
 (el-get 'sync my:el-get-packages)

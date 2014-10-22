@@ -187,3 +187,13 @@ If there's no region, the current line will be duplicated."
     (setq default-directory working-dir)
     )
   )
+
+(defun what-position-percentage ()
+  (interactive)
+  (message
+   (number-to-string
+    (truncate
+     (* 100
+        (/
+         (float (line-number-at-pos))
+         (count-lines (point-min) (point-max))))))))
