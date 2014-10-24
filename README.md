@@ -1,4 +1,4 @@
-## El-Get based emacs setup
+## Emacs configuration based on el-get.el
 
 ### Usability packages:
 - emacs-nav
