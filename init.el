@@ -7,6 +7,8 @@
  '(custom-enabled-themes (quote (tango-dark-ancane)))
  '(custom-safe-themes (quote ("450850644a55da3343a49d10344986a058ca17c449d3470dc302e56294ea1db8" default)))
  '(custom-theme-directory "~/.emacs.d/custom/themes")
+ '(haskell-process-show-debug-tips nil)
+ '(haskell-tags-on-save t)
  '(markdown-command "multimarkdown")
  '(nav-boring-file-regexps (quote ("^[.]$" "~$" "[.]elc$" "[.]pyc$" "[.]o$" "[.]bak$" "^_MTN$" "^blib$" "^CVS$" "^RCS$" "^SCCS$" "^_darcs$" "^_sgbak$" "^autom4te.cache$" "^cover_db$" "^_build$" "^[.]git$" "^[.]ensime")))
  '(projectile-keymap-prefix (kbd "C-c C-p"))

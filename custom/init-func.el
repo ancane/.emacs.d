@@ -174,8 +174,12 @@ If there's no region, the current line will be duplicated."
 (defun just-no-space ()
   (interactive)
   (delete-indentation)
-  (delete-horizontal-space)
-)
+  (delete-horizontal-space))
+
+(defun delete-indentation-one-space ()
+  (interactive)
+  (just-no-space)
+  (just-one-space))
 
 (defun create-scala-tags (dir-name)
   "Create tags file."
@@ -197,3 +201,18 @@ If there's no region, the current line will be duplicated."
         (/
          (float (line-number-at-pos))
          (count-lines (point-min) (point-max))))))))
+
+;;; it's for mark
+;; (defvar tmr nil)
+
+;; (setq tmr
+;;       (run-with-idle-timer 5 1 'what-position-percentage))
+
+;; (cancel-timer tmr)
+;;;;;
+
+;; for scala outline mode
+
+(defun current-etags-to-string ()
+  (interactive)
+  (message (shell-command-to-string (format "etags -f - --regex=\"/[^\*\\/]*class[ \t]*\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*object[ \t]*\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*trait[ \t]*\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*def[ \t]*\\([^[ \a\b\d\e\f\n\r\t\v(]+\\)[ \t]*.*[:=]/\1/\" --regex=\"/[^\*\\/]*type[ \t]*\\([a-zA-Z0-9_]+\\)[ \t]*[\[<>=]/\1/\" %s" (buffer-file-name)))))
