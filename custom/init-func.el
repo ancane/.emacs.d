@@ -215,4 +215,20 @@ If there's no region, the current line will be duplicated."
 
 (defun current-etags-to-string ()
   (interactive)
-  (message (shell-command-to-string (format "etags -f - --regex=\"/[^\*\\/]*class[ \t]*\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*object[ \t]*\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*trait[ \t]*\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*def[ \t]*\\([^[ \a\b\d\e\f\n\r\t\v(]+\\)[ \t]*.*[:=]/\1/\" --regex=\"/[^\*\\/]*type[ \t]*\\([a-zA-Z0-9_]+\\)[ \t]*[\[<>=]/\1/\" %s" (buffer-file-name)))))
+
+  (let* ((tags-list
+          (split-string
+           (shell-command-to-string
+            (format "etags -f - --regex=\"/[^\*\\/]*class[ \t]*\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*object[ \t]*\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*trait[ \t]*\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*def[ \t]*\\([^[ \a\b\d\e\f\n\r\t\v(]+\\)[ \t]*.*[:=]/\1/\" --regex=\"/[^\*\\/]*type[ \t]*\\([a-zA-Z0-9_]+\\)[ \t]*[\[<>=]/\1/\" %s" (buffer-file-name))) "[\n]"))
+         (file-name-str (car (cdr tags-list)))
+         (popup-items (cdr (cdr tags-list)))
+         )
+    (popup-menu*
+     popup-items
+     :isearch t
+     :height 15
+     :scroll-bar t
+     :margin-left 1
+     :margin-right 1
+     :around nil
+     )))
