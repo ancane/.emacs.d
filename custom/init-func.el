@@ -213,7 +213,9 @@ If there's no region, the current line will be duplicated."
 
 ;; for scala outline mode
 
-(defun current-etags-to-string ()
+(require 'dash)
+
+(defun current-etags-popup ()
   (interactive)
 
   (let* ((tags-list
@@ -221,8 +223,15 @@ If there's no region, the current line will be duplicated."
            (shell-command-to-string
             (format "etags -f - --regex=\"/[^\*\\/]*class[ \t]*\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*object[ \t]*\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*trait[ \t]*\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*def[ \t]*\\([^[ \a\b\d\e\f\n\r\t\v(]+\\)[ \t]*.*[:=]/\1/\" --regex=\"/[^\*\\/]*type[ \t]*\\([a-zA-Z0-9_]+\\)[ \t]*[\[<>=]/\1/\" %s" (buffer-file-name))) "[\n]"))
          (file-name-str (car (cdr tags-list)))
-         (popup-items (cdr (cdr tags-list)))
-         )
+         (popup-list (-remove (lambda (x) (string-equal x "")) (cdr (cdr tags-list))))
+         (tag-regex "^.*?\\(\^?\\(.+\\)\^A\\|\\<\\(.+\\)[ \f\t()=,;]*\^?[0-9,]\\)")
+         (popup-items
+          (-map (lambda (x)
+                  (if (>= 0 (string-match tag-regex x))
+                      (match-string 0 x)
+                    ""
+                    )
+                  ) popup-list)))
     (popup-menu*
      popup-items
      :isearch t
