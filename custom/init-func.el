@@ -221,23 +221,30 @@ If there's no region, the current line will be duplicated."
   (let* ((tags-list
           (split-string
            (shell-command-to-string
-            (format "etags -f - --regex=\"/[^\*\\/]*class[ \t]*\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*object[ \t]*\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*trait[ \t]*\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*def[ \t]*\\([^[ \a\b\d\e\f\n\r\t\v(]+\\)[ \t]*.*[:=]/\1/\" --regex=\"/[^\*\\/]*type[ \t]*\\([a-zA-Z0-9_]+\\)[ \t]*[\[<>=]/\1/\" %s" (buffer-file-name))) "[\n]"))
+            (format "etags -f - --regex=\"/[^\*\\/]*class[ \t]+\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*object[ \t]+\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*trait[ \t]+\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*def[ \t]+\\([^[ \a\b\d\e\f\n\r\t\v(]+\\)[ \t]*.*[:=]/\1/\" --regex=\"/[^\*\\/]*type[ \t]+\\([a-zA-Z0-9_]+\\)[ \t]*[\[<>=]/\1/\" %s" (buffer-file-name))) "[\n]"))
          (file-name-str (car (cdr tags-list)))
-         (popup-list (-remove (lambda (x) (string-equal x "")) (cdr (cdr tags-list))))
          (tag-regex "^.*?\\(\^?\\(.+\\)\^A\\|\\<\\(.+\\)[ \f\t()=,;]*\^?[0-9,]\\)")
+         (popup-list
+          (-remove (lambda (x) (not  x))
+                   (-map (lambda (x)
+                           (when (string-match "\\(.*?\\)\^?\^A\^A\\([0-9]+\\),\\([0-9]+\\)" x)
+                             (list (match-string 1 x)
+                                   (string-to-number (match-string 2 x))
+                                   (string-to-number (match-string 3 x))))) tags-list)))
          (popup-items
           (-map (lambda (x)
-                  (if (>= 0 (string-match tag-regex x))
-                      (match-string 0 x)
-                    ""
-                    )
-                  ) popup-list)))
-    (popup-menu*
-     popup-items
-     :isearch t
-     :height 15
-     :scroll-bar t
-     :margin-left 1
-     :margin-right 1
-     :around nil
-     )))
+                  (popup-make-item
+                   (car x)
+                   :value (cdr x))) popup-list))
+         (selected (popup-menu*
+                      popup-items
+                      :isearch t
+                      :height 15
+                      :scroll-bar t
+                      :margin-left 1
+                      :margin-right 1
+                      :around nil
+                      )))
+    (goto-line (car selected))
+    )
+  )
