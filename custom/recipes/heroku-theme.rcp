@@ -1,8 +1,0 @@
-(:name heroku-theme
-       :description "Heroku theme"
-       :type github
-       :website "https://github.com/jonathanchu/heroku-theme.git"
-       :pkgname "jonathanchu/heroku-theme"
-       :prepare (progn
-                  (load-theme 'heroku t)
-                  ))
