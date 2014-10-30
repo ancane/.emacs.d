@@ -50,3 +50,6 @@
 
 (global-set-key (kbd "M-^") 'just-no-space)
 (global-set-key (kbd "M-&") 'delete-indentation-one-space)
+
+
+(global-set-key (kbd "C-e") 'scala-outline-popup)

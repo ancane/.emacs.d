@@ -215,15 +215,13 @@ If there's no region, the current line will be duplicated."
 
 (require 'dash)
 
-(defun current-etags-popup ()
+(defun scala-outline-popup ()
   (interactive)
-
   (let* ((tags-list
           (split-string
            (shell-command-to-string
-            (format "etags -f - --regex=\"/[^\*\\/]*class[ \t]+\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*object[ \t]+\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*trait[ \t]+\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*def[ \t]+\\([^[ \a\b\d\e\f\n\r\t\v(]+\\)[ \t]*.*[:=]/\1/\" --regex=\"/[^\*\\/]*type[ \t]+\\([a-zA-Z0-9_]+\\)[ \t]*[\[<>=]/\1/\" %s" (buffer-file-name))) "[\n]"))
+            (format "etags -f - --regex=\"/[^\*\\/]*class[ \t]+\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*object[ \t]+\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*trait[ \t]+\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*def[ \t]+\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*type[ \t]+\\([a-zA-Z0-9_]+\\)[ \t]*[\[<>=]/\1/\" %s" (buffer-file-name))) "[\n]"))
          (file-name-str (car (cdr tags-list)))
-         (tag-regex "^.*?\\(\^?\\(.+\\)\^A\\|\\<\\(.+\\)[ \f\t()=,;]*\^?[0-9,]\\)")
          (popup-list
           (-remove (lambda (x) (not  x))
                    (-map (lambda (x)
@@ -231,20 +229,29 @@ If there's no region, the current line will be duplicated."
                              (list (match-string 1 x)
                                    (string-to-number (match-string 2 x))
                                    (string-to-number (match-string 3 x))))) tags-list)))
+         (menu-height (min 15 (length popup-list) (- (window-height) 4)))
+         (menu-x (/ (- fill-column
+                       (apply 'max (mapcar (lambda (x) (length (car x))) popup-list))) 2))
+         (menu-y (+ (- (line-number-at-pos (window-start)) 2) (/ (- (window-height) menu-height) 2)))
+         (menu-pos (save-excursion (artist-move-to-xy menu-x menu-y) (point)))
          (popup-items
           (-map (lambda (x)
                   (popup-make-item
                    (car x)
-                   :value (cdr x))) popup-list))
+                   :value x)) popup-list))
          (selected (popup-menu*
-                      popup-items
-                      :isearch t
-                      :height 15
-                      :scroll-bar t
-                      :margin-left 1
-                      :margin-right 1
-                      :around nil
-                      )))
-    (goto-line (car selected))
+                    popup-items
+                    :point menu-pos
+                    :height menu-height
+                    :isearch t
+                    :scroll-bar t
+                    :margin-left 1
+                    :margin-right 1
+                    :around nil
+                    )))
+    (goto-line (car (cdr selected)))
+    (search-forward (car selected))
+    (re-search-backward "[ \t]")
+    (forward-char)
     )
   )
