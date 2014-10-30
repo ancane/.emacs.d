@@ -197,10 +197,13 @@ If there's no region, the current line will be duplicated."
 
 (defun scala-outline-popup ()
   (interactive)
-  (let* ((tags-list
+  (let* (
+         (scala-syntax:plainid-re "\\(\\([[:lower:]_[:upper:]\\$]\\([_]\\?\\?[[:lower:][:upper:]\\$0-9]+\\)*\\(_+[#:<=>@!%&*+\\/?\\\\^|~-]+\\|_\\)?\\)\\|[#:<=>@!%&*+\\/?\\\\^|~-]+\\)+")
+         (scala-re (concat "/^[^\n\*\\/]*\\(class\\|trait\\|object\\|type\\|def\\)[ \t]+\\(" scala-syntax:plainid-re "\\)/\1/"))
+         (tags-list
           (split-string
            (shell-command-to-string
-            (format "etags -f - --regex=\"/[^\*\\/]*class[ \t]+\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*object[ \t]+\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*trait[ \t]+\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*def[ \t]+\\([a-zA-Z0-9_]+\\)/\1/\" --regex=\"/[^\*\\/]*type[ \t]+\\([a-zA-Z0-9_]+\\)[ \t]*[\[<>=]/\1/\" %s" (buffer-file-name))) "[\n]"))
+            (format "etags -f - --regex=\"%s\" %s" scala-re (buffer-file-name))) "[\n]"))
          (file-name-str (car (cdr tags-list)))
          (popup-list
           (-remove (lambda (x) (not  x))
