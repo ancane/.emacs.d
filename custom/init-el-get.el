@@ -21,7 +21,6 @@
  '(el-get
    websocket
    color-theme
-   color-theme-tango-2
    ace-jump-mode
    emacs-ido-yes-or-no
    ido-ubiquitous
