@@ -194,24 +194,21 @@ If there's no region, the current line will be duplicated."
 ;; for scala outline mode
 
 (require 'dash)
+(require 's)
 
-(defun scala-outline-popup ()
+(defun scala-outline-popup (&optional file)
   (interactive)
   (let* (
-         (scala-syntax:plainid-re "\\(\\([[:lower:]_[:upper:]\\$]\\([_]\\?\\?[[:lower:][:upper:]\\$0-9]+\\)*\\(_+[#:<=>@!%&*+\\/?\\\\^|~-]+\\|_\\)?\\)\\|[#:<=>@!%&*+\\/?\\\\^|~-]+\\)+")
-         (scala-re (concat "/^[^\n\*\\/]*\\(class\\|trait\\|object\\|type\\|def\\)[ \t]+\\(" scala-syntax:plainid-re "\\)/\1/"))
+         (scala-re "/^[^\n\\/(]*\\(class\\|trait\\|object\\|type\\|def\\)[ \t]+\\([^\n]+\\)/\1/")
+         (shell-string
+          (shell-command-to-string
+           (format "etags -f - --regex=\"%s\" %s" scala-re (if file file (buffer-file-name)))))
          (tags-list
-          (split-string
-           (shell-command-to-string
-            (format "etags -f - --regex=\"%s\" %s" scala-re (buffer-file-name))) "[\n]"))
+          (split-string shell-string "\n"))
          (file-name-str (car (cdr tags-list)))
          (popup-list
           (-remove (lambda (x) (not  x))
-                   (-map (lambda (x)
-                           (when (string-match "\\(.*?\\)\^?\^A\^A\\([0-9]+\\),\\([0-9]+\\)" x)
-                             (list (match-string 1 x)
-                                   (string-to-number (match-string 2 x))
-                                   (string-to-number (match-string 3 x))))) tags-list)))
+                   (-map (lambda (x) (scala-outline-popup-parse-etag x) ) tags-list)))
          (menu-height (min 15 (length popup-list) (- (window-height) 4)))
          (menu-x (/ (- fill-column
                        (apply 'max (mapcar (lambda (x) (length (car x))) popup-list))) 2))
@@ -220,7 +217,7 @@ If there's no region, the current line will be duplicated."
          (popup-items
           (-map (lambda (x)
                   (popup-make-item
-                   (car x)
+                  (scala-outline-pretify-popup-item (car x))
                    :value x)) popup-list))
          (selected (popup-menu*
                     popup-items
@@ -232,9 +229,33 @@ If there's no region, the current line will be duplicated."
                     :margin-right 1
                     :around nil
                     )))
+    (message shell-string)
     (goto-line (car (cdr selected)))
     (search-forward (car selected))
     (re-search-backward "[ \t]")
     (forward-char)
     )
   )
+
+(defun scala-outline-popup-parse-etag (x)
+  (if (string-match "^\\(.*?\\)[(]\\(.*?\\)*\^?\^A\^A\\([0-9]+\\),\\([0-9]+\\)$" x)
+      (list
+       (match-string 1 x)
+       (string-to-number (match-string 2 x)))
+    (if ( string-match "^\\(.*\\)[:]\\(.*?\\)*\^?\^A\^A\\([0-9]+\\),\\([0-9]+\\)$" x)
+      (list
+       (match-string 1 x)
+       (string-to-number (match-string 2 x)))
+      (if (string-match "^\\(.*?\\)\^?\^A\^A\\([0-9]+\\),\\([0-9]+\\)$" x)
+          (list
+           (match-string 1 x)
+           (string-to-number (match-string 2 x)))
+        )))
+  )
+
+(defun scala-outline-pretify-popup-item (x)
+  ;; strip function argument list, = or {
+  (car (s-slice-at "\\([ \t]*\\(extends\\|{\\|\\(=[^:=/]?\\)\\)\\)" x))
+  )
+
+(scala-outline-popup "/home/wise/.ivy2/cache/org.scalaz/scalaz-core_2.11/srcs/scalaz/DList.scala")
