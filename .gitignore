@@ -6,6 +6,8 @@ archives/
 elpa/archives/
 eshell/
 el-get/
+elpa/
+url/
 
 # Files
 .emacs.desktop
@@ -14,7 +16,7 @@ el-get/
 places
 ido.last
 .smex-items
-*.dat
+ac-comphist.dat
 *~
 *#
 .#*
