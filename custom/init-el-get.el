@@ -48,6 +48,7 @@
    less-css-mode
    exec-path-from-shell
    ensime
+   scala-outline-popup
    etags-select
    org-mode
    o-blog
