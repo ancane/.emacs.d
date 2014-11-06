@@ -161,16 +161,33 @@ If there's no region, the current line will be duplicated."
   (just-no-space)
   (just-one-space))
 
-(defun create-scala-tags (dir-name)
-  "Create tags file."
-  (interactive "DDirectory: ")
-  (let* ((working-dir default-directory))
-    (setq default-directory dir-name)
-    (eshell-command
-     (format "find %s -not -path \"./target/*\" -not -path \"./.git/*\" -type f -iname \"*.scala\" | etags --regex=%s -" dir-name (concat "@" (expand-file-name "~") "/etags.scala")))
-    (setq default-directory working-dir)
-    )
-  )
+(defun create-scala-tags ()
+  (interactive)
+  (when (projectile-project-p)
+    (let ((working-dir default-directory)
+          (dir-name (projectile-project-root))
+          (tags-revert-without-query t))
+      (setq default-directory dir-name)
+      (eshell-command
+       (format
+        (concat
+         "find %s -not -path \""
+         dir-name
+         ".ensime_cache/*\""
+         " -not -path \""
+         dir-name
+         "./target/*\""
+         " -not -path \""
+         dir-name
+         "./.git/*\""
+         " -type f -iname \"*.scala\" | etags --regex=%s -"
+         )
+        dir-name
+        (concat "@" (expand-file-name "~") "/etags.scala")))
+      (message dir-name)
+      (visit-tags-table default-directory nil)
+      (setq default-directory working-dir))
+    ))
 
 (defun what-position-percentage ()
   (interactive)
