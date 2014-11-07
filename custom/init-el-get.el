@@ -19,6 +19,7 @@
 (setq
  my:el-get-packages
  '(el-get
+   popup
    websocket
    color-theme
    ace-jump-mode
