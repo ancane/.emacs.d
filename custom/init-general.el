@@ -5,14 +5,26 @@
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 (package-initialize)
 
+;; Font
+(add-to-list 'default-frame-alist '(font . "-xos4-terminus-bold-*-normal-*-18-180-72-72-c-100-koi8-r"))
+(set-default-font "-xos4-terminus-bold-*-normal-*-18-180-72-72-c-100-koi8-r")
+
 ;; UI settings
 (menu-bar-mode   -1)
 (tool-bar-mode   -1)
 (scroll-bar-mode -1)
 
-(line-number-mode   1)
-(column-number-mode 1)
-(global-linum-mode  1)
+(line-number-mode t)
+(column-number-mode t)
+(global-linum-mode t)
+(electric-pair-mode t)
+(show-paren-mode t)
+(global-auto-revert-mode t)
+(global-hl-line-mode t)
+(desktop-save-mode t)
+(global-subword-mode t)
+(random t)
+(windmove-default-keybindings 'meta)
 
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
@@ -20,8 +32,7 @@
   (mouse-wheel-mode t)
   (blink-cursor-mode -1))
 
-(setq inhibit-splash-screen t)
-(setq redisplay-dont-pause  t)
+(add-to-list 'default-frame-alist '(alpha . 100))
 
 (setq scroll-step 1
       scroll-conservatively 50
@@ -29,7 +40,9 @@
       scroll-up-margin 5
       scroll-preserve-screen-position t)
 
-(setq inhibit-startup-message t
+(setq inhibit-splash-screen t
+      inhibit-startup-message t
+      redisplay-dont-pause t
       color-theme-is-global t
       sentence-end-double-space nil
       mouse-yank-at-point t
@@ -38,41 +51,18 @@
       whitespace-line-column 80
       save-place-file (concat user-emacs-directory "places")
       backup-directory-alist `(("." . ,(concat user-emacs-directory "backups")))
-      diff-switches "-u")
-
-;; Font
-(add-to-list 'default-frame-alist '(font . "-xos4-terminus-bold-*-normal-*-18-180-72-72-c-100-koi8-r"))
-(set-default-font "-xos4-terminus-bold-*-normal-*-18-180-72-72-c-100-koi8-r")
-
-;; C-c C-v
-(cua-mode)
-
-;; Clipboard
-(setq x-select-enable-clipboard t)
-
-(windmove-default-keybindings 'meta)
-(setq windmove-wrap-around t)
-
-;; Revert buffer file is changed outside emacs
-;; and contains no unsaved changes
-(global-auto-revert-mode 1)
-
-(add-to-list 'default-frame-alist '(alpha . 100))
-
-;; Highlits current line
-(global-hl-line-mode)
-
-;; No ring or visual warnings
-(setq ring-bell-function 'ignore)
-
-;; Save desktop
-(desktop-save-mode t)
-(setq desktop-save-buffer t)
-
-(setq require-final-newline 't)
-
-;; For camelCase parts selection
-(global-subword-mode 1)
+      diff-switches "-u"
+      create-lockfiles nil
+      x-select-enable-clipboard t
+      fill-column 80
+      show-paren-delay 0
+      ring-bell-function 'ignore
+      desktop-save-buffer t
+      require-final-newline t
+      windmove-wrap-around t
+      default-input-method 'russian-computer
+      gc-cons-threshold 20000000
+      )
 
 ;; UTF-8
 (setq locale-coding-system   'utf-8)
@@ -82,25 +72,14 @@
 (set-selection-coding-system 'utf-8)
 (prefer-coding-system        'utf-8)
 
-(setq default-input-method 'russian-computer)
-
 (add-hook 'before-save-hook
           '(lambda ()
              (untabify (point-min) (point-max))
              (delete-trailing-whitespace)))
 
-(show-paren-mode 1)
-
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-;; Seed the random-number generator
-(random t)
-
-;; GC tuning: start after every new 20Mb allocated
-(setq gc-cons-threshold 20000000)
-
-(setq fill-column 80)
+;; C-c C-v
+(cua-mode)
 
 (require 'midnight)
-
-(electric-pair-mode t)
