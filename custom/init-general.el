@@ -40,9 +40,8 @@
       scroll-up-margin 5
       scroll-preserve-screen-position t)
 
-(setq inhibit-splash-screen t
-      inhibit-startup-message t
-      redisplay-dont-pause t
+(setq inhibit-startup-message t
+      redisplay-dont-pause  t
       color-theme-is-global t
       sentence-end-double-space nil
       mouse-yank-at-point t
