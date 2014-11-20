@@ -25,10 +25,12 @@
    ace-jump-mode
    emacs-ido-yes-or-no
    ido-ubiquitous
+   json-reformat
    js2-mode
+   restclient
    mark-multiple
    smex
-   zencoding-mode
+   emmet-mode
    popup-switcher
    expand-region
    emacs-nav

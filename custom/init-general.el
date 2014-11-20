@@ -82,3 +82,5 @@
 (cua-mode)
 
 (require 'midnight)
+
+(add-to-list 'auto-mode-alist '("\\.props\\'" . conf-javaprop-mode))

@@ -1,3 +1,3 @@
 (require 'scala-outline-popup)
 
-(setq scala-outline-popup-selection 'closest)
+(setq scala-outline-popup-select 'closest)

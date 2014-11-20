@@ -21,7 +21,7 @@
 - haskell-mode
 - js2-mode
 - web-mode
-- zencoding-mode
+- emmet-mode
 - markdown-mode
 
 ### Modeline: powerline
