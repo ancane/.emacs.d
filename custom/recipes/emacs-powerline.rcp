@@ -1,5 +1,0 @@
-(:name emacs-powerline
-       :description "Emacs powerline"
-       :type github
-       :website "https://github.com/ancane/emacs-powerline.git"
-       :pkgname "ancane/emacs-powerline")

@@ -34,7 +34,7 @@
    popup-switcher
    expand-region
    emacs-nav
-   emacs-powerline ;; TODO replace with original powerline if my pull request is accepted
+   emacs-powerline
    auto-complete
    elisp-slime-nav
    paredit
@@ -50,8 +50,10 @@
    magit
    less-css-mode
    exec-path-from-shell
-   ensime
+   scala-mode2
+   sbt-mode
    scala-outline-popup
+   ensime
    etags-select
    org-mode
    o-blog
