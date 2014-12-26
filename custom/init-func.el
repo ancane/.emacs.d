@@ -222,3 +222,11 @@ If there's no region, the current line will be duplicated."
            (describe-function sym))
           ((setq sym (variable-at-point)) (describe-variable sym))
           ((setq sym (function-at-point)) (describe-function sym)))))
+
+
+;; swiches to other frame
+
+(defun sbt-mode-switch-to-buffer-other-frame ()
+  (other-frame 1)
+  (find-file "/home/wise/workspace/mytnm/src/main/scala/com/thenewmotion/lovetoload/customer/PersonAccount.scala")
+  )
