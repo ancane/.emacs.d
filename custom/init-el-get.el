@@ -53,7 +53,6 @@
    scala-mode2
    sbt-mode
    scala-outline-popup
-   ensime
    etags-select
    org-mode
    o-blog
