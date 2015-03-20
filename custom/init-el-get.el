@@ -55,7 +55,8 @@
    scala-outline-popup
    etags-select
    org-mode
-   o-blog
+;;   o-blog
+   google-translate
    ))
 
 (el-get 'sync my:el-get-packages)
