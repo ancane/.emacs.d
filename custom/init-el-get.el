@@ -55,7 +55,6 @@
    scala-outline-popup
    etags-select
    org-mode
-;;   o-blog
    google-translate
    ))
 
