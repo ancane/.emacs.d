@@ -53,7 +53,7 @@
    scala-mode2
    sbt-mode
    scala-outline-popup
-   etags-select
+   emacs-etags-select
    org-mode
    google-translate
    ))
