@@ -51,9 +51,6 @@
 (global-set-key (kbd "M-^") 'just-no-space)
 (global-set-key (kbd "M-&") 'delete-indentation-one-space)
 
-
-(global-set-key (kbd "C-e") 'scala-outline-popup)
-
 (global-set-key (kbd "C-<tab>") 'dabbrev-expand)
 
 (global-set-key (kbd "<f1>") 'describe-foo-at-point)
