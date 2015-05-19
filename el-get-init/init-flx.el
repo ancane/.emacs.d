@@ -8,9 +8,10 @@
 (ido-ubiquitous t)
 
 (flx-ido-mode t)
+
 ;; disable ido faces to see flx highlights.
 (setq ido-use-faces nil)
-(setq flx-ido-use-faces nil)
+;;(setq flx-ido-use-faces nil)
 
 (recentf-mode t)
 ;(ido-yes-or-no-mode)

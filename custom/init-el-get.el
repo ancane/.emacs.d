@@ -25,20 +25,21 @@
    ace-jump-mode
    emacs-ido-yes-or-no
    ido-ubiquitous
+   flx ;; flx-ido
+   ido-vertical-mode
    json-reformat
    js2-mode
    restclient
    mark-multiple
    smex
    emmet-mode
-   popup-switcher
+   emacs-popup-switcher ;;   popup-switcher
    expand-region
    emacs-nav
    emacs-powerline
    auto-complete
    elisp-slime-nav
    paredit
-   flx   ;; Ido flex matching
    move-text
    goto-last-change
    old-fashioned-undo
@@ -53,7 +54,7 @@
    scala-mode2
    sbt-mode
    scala-outline-popup
-   emacs-etags-select
+;;   emacs-etags-select
    org-mode
    google-translate
    ))
