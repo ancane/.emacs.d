@@ -1,5 +1,6 @@
 (:name emacs-popup-switcher
        :description "Popup switcher"
        :type github
+       :depends popup
        :website "https://github.com/ancane/popup-switcher.git"
        :pkgname "ancane/popup-switcher")
