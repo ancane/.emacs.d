@@ -1,5 +1,5 @@
 (:name emacs-etags-select
        :description "Select from multiple tags"
-       :type http
-       :url "http://www.emacswiki.org/emacs/download/etags-select.el"
-       :features emacs-etags-select)
+       :type github
+       :website "https://github.com/emacsmirror/etags-select"
+       :pkgname "emacsmirror/etags-select")

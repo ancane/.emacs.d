@@ -37,6 +37,7 @@
    expand-region
    emacs-nav
    emacs-powerline
+   emacs-etags-select
    auto-complete
    elisp-slime-nav
    paredit
@@ -54,7 +55,6 @@
    scala-mode2
    sbt-mode
    scala-outline-popup
-;;   emacs-etags-select
    org-mode
    google-translate
    ))
