@@ -1,5 +1,5 @@
 (:name emacs-etags-select
        :description "Select from multiple tags"
        :type github
-       :website "https://github.com/emacsmirror/etags-select"
+       :website "https://github.com/emacsmirror/etags-select.git"
        :pkgname "emacsmirror/etags-select")
