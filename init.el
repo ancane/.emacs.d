@@ -47,6 +47,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(flx-highlight-face ((t (:inherit font-lock-keyword-face :background "black" :weight bold))))
+ '(flx-highlight-face ((t (:inherit font-lock-keyword-face :background "black" :foreground "#FFA319" :weight bold))))
+ '(popup-isearch-match ((t (:inherit font-lock-keyword-face :background "black" :foreground "#FFA319"  :weight bold))))
  '(mode-line ((t (:foreground "#030303" :background "#FFA319" :box nil))))
  '(mode-line-inactive ((t (:foreground "#f9f9f9" :background "#666666" :box nil)))))
