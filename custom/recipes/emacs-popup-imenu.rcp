@@ -1,0 +1,5 @@
+(:name emacs-popup-imenu
+       :description "Emacs popup-imenu"
+       :type github
+       :website "https://github.com/ancane/popup-imenu.git"
+       :pkgname "ancane/popup-imenu")

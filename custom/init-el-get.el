@@ -54,9 +54,10 @@
    exec-path-from-shell
    scala-mode2
    sbt-mode
-   scala-outline-popup
+;;   scala-outline-popup
    org-mode
    google-translate
+   emacs-popup-imenu
    ))
 
 (el-get 'sync my:el-get-packages)
