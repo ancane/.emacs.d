@@ -26,9 +26,8 @@
 
 (global-set-key (kbd "C-c c") 'ac-start)
 
-(global-set-key (kbd "C-\\")    'comment-or-uncomment-region)
-(global-set-key (kbd "C-c C-c") 'comment-or-uncomment-region)
-
+;;(global-set-key (kbd "C-\\")    'comment-or-uncomment-region)
+;;(global-set-key (kbd "C-c C-c") 'comment-or-uncomment-region)
 
 (global-set-key (kbd "M-0") 'delete-window)
 (global-set-key (kbd "M-1") 'delete-other-windows)
