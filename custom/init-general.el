@@ -1,10 +1,4 @@
 
-(require 'package)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("ELPA"      . "http://tromey.com/elpa/"))
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
-(package-initialize)
-
 ;; Font
 (add-to-list 'default-frame-alist '(font . "-xos4-terminus-bold-*-normal-*-18-180-72-72-c-100-koi8-r"))
 (set-default-font "-xos4-terminus-bold-*-normal-*-18-180-72-72-c-100-koi8-r")
@@ -71,10 +65,10 @@
 (set-selection-coding-system 'utf-8)
 (prefer-coding-system        'utf-8)
 
-(add-hook 'before-save-hook
-          '(lambda ()
-             (untabify (point-min) (point-max))
-             (delete-trailing-whitespace)))
+;; (add-hook 'before-save-hook
+;;           '(lambda ()
+;;              (untabify (point-min) (point-max))
+;;              (delete-trailing-whitespace)))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -86,3 +80,18 @@
 (add-to-list 'auto-mode-alist '("\\.props\\'" . conf-javaprop-mode))
 (add-to-list 'auto-mode-alist '("\\.erl\\'" . erlang-mode))
 (add-to-list 'auto-mode-alist '("\\.hrl\\'" . erlang-mode))
+
+
+
+(defun ensime-show-structure-view ()
+  "Show source file structure"
+  (interactive)
+   (let* ((structure (ensime-rpc-structure-view))
+          (view (plist-get structure :view))
+          (buffer-name ensime-inspector-buffer-name))
+     (ensime-with-inspector-buffer
+      (buffer-name view t)
+      (dolist (item view)
+        (insert (format "%s" item))
+        (insert "\n")
+        ))))

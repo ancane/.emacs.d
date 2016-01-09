@@ -8,6 +8,8 @@ eshell/
 el-get/
 elpa/
 url/
+ensime/
+.cask/
 
 # Files
 .emacs.desktop
@@ -27,5 +29,3 @@ TAGS
 projectile-bookmarks.eld
 tramp
 recentf
-
-.cask/

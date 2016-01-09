@@ -20,17 +20,18 @@
  '(restclient-print-curl t)
  '(safe-local-variable-values
    (quote
-    ((eval ignore-errors "Write-contents-functions is a buffer-local alternative to before-save-hook"
-           (add-hook
-            (quote write-contents-functions)
-            (lambda nil
-              (delete-trailing-whitespace)
-              nil))
-           (require
-            (quote whitespace))
-           "Sometimes the mode needs to be toggled off and on."
-           (whitespace-mode 0)
-           (whitespace-mode 1))
+    ((whitespace-style face tabs trailing lines-tail)
+     (eval ignore-errors "Write-contents-functions is a buffer-local alternative to before-save-hook"
+	   (add-hook
+	    (quote write-contents-functions)
+	    (lambda nil
+	      (delete-trailing-whitespace)
+	      nil))
+	   (require
+	    (quote whitespace))
+	   "Sometimes the mode needs to be toggled off and on."
+	   (whitespace-mode 0)
+	   (whitespace-mode 1))
      (whitespace-line-column . 80)
      (whitespace-style face trailing lines-tail)
      (require-final-newline . t)))))
@@ -41,6 +42,7 @@
 ;; Load custom init files
 (load "init-general.el")
 (load "init-el-get.el")
+(load "init-package.el")
 (load "init-func.el")
 (load "init-ibuffer.el")
 (load "init-keys.el")
@@ -54,3 +56,9 @@
  '(mode-line ((t (:foreground "#030303" :background "#FFA319" :box nil))))
  '(mode-line-inactive ((t (:foreground "#f9f9f9" :background "#666666" :box nil))))
  '(popup-isearch-match ((t (:inherit font-lock-keyword-face :background "yellow" :foreground "black" :weight bold)))))
+
+;; (load (expand-file-name "~/quicklisp/slime-helper.el"))
+;; Replace "sbcl" with the path to your implementation
+;; (setq inferior-lisp-program "sbcl")
+
+

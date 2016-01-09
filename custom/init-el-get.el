@@ -39,6 +39,7 @@
    emacs-powerline
    emacs-etags-select
    auto-complete
+   slime
    elisp-slime-nav
    paredit
    move-text
@@ -58,6 +59,12 @@
    org-mode
    google-translate
    emacs-popup-imenu
+   clojure-mode
+   cider
+   yasnippet
+   which-key
+;;   emacs-ensime
+   ensime
    ))
 
 (el-get 'sync my:el-get-packages)
