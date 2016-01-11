@@ -1,0 +1,8 @@
+(:name emacs-markdown-preview-mode
+       :description "Markdown-preview-mode"
+       :type github
+       :pkgname "ancane/markdown-preview-mode"
+       :branch "flycheck"
+       :depends (websocket
+                 markdown-mode)
+       )
