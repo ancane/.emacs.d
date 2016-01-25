@@ -19,6 +19,7 @@
 (setq
  my:el-get-packages
  '(el-get
+   s
    popup
    websocket
    color-theme

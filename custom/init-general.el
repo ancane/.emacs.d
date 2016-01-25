@@ -15,7 +15,10 @@
 (show-paren-mode t)
 (global-auto-revert-mode t)
 (global-hl-line-mode t)
+
 (desktop-save-mode t)
+(setq desktop-restore-forces-onscreen nil)
+
 (global-subword-mode t)
 (random t)
 (windmove-default-keybindings 'meta)
