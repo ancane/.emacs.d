@@ -34,6 +34,8 @@
    mark-multiple
    smex
    emmet-mode
+   helm
+   helm-ag
    emacs-popup-switcher ;;   popup-switcher
    expand-region
    emacs-nav
