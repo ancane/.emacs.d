@@ -66,8 +66,8 @@
    cider
    yasnippet
    which-key
-;;   emacs-ensime
-   ensime
+   emacs-ensime
+;;   ensime
    ))
 
 (el-get 'sync my:el-get-packages)

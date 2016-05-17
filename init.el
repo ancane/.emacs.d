@@ -12,6 +12,7 @@
     ("6fc1dd081e496de5ad3e13250c759987e10c71bbf31c102a7dd2b74049d540cb" default)))
  '(custom-theme-directory "~/.emacs.d/custom/themes")
  '(markdown-command "multimarkdown")
+ '(markdown-nested-imenu-heading-index t)
  '(nav-boring-file-regexps
    (quote
     ("^[.]$" "~$" "[.]elc$" "[.]pyc$" "[.]o$" "[.]bak$" "^_MTN$" "^blib$" "^CVS$" "^RCS$" "^SCCS$" "^_darcs$" "^_sgbak$" "^autom4te.cache$" "^cover_db$" "^_build$" "^[.]git$" "^[.]ensime")))
