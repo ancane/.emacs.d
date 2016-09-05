@@ -20,6 +20,8 @@
  my:el-get-packages
  '(el-get
    s
+   dash
+   ag
    popup
    websocket
    color-theme
@@ -41,7 +43,8 @@
    emacs-nav
    emacs-powerline
    emacs-etags-select
-   auto-complete
+   ;;auto-complete
+   company-mode
    slime
    elisp-slime-nav
    paredit
@@ -56,9 +59,8 @@
    magit
    less-css-mode
    exec-path-from-shell
-   scala-mode2
+   scala-mode
    sbt-mode
-;;   scala-outline-popup
    org-mode
    google-translate
    emacs-popup-imenu
@@ -66,8 +68,9 @@
    cider
    yasnippet
    which-key
-   emacs-ensime
 ;;   ensime
-   ))
+;;   emacs-ensime
+   )
+ )
 
 (el-get 'sync my:el-get-packages)

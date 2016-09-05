@@ -3,6 +3,8 @@
 (add-to-list 'default-frame-alist '(font . "-xos4-terminus-bold-*-normal-*-18-180-72-72-c-100-koi8-r"))
 (set-default-font "-xos4-terminus-bold-*-normal-*-18-180-72-72-c-100-koi8-r")
 
+(global-font-lock-mode 1)
+
 ;; UI settings
 (menu-bar-mode   -1)
 (tool-bar-mode   -1)
@@ -83,18 +85,3 @@
 (add-to-list 'auto-mode-alist '("\\.props\\'" . conf-javaprop-mode))
 (add-to-list 'auto-mode-alist '("\\.erl\\'" . erlang-mode))
 (add-to-list 'auto-mode-alist '("\\.hrl\\'" . erlang-mode))
-
-
-
-(defun ensime-show-structure-view ()
-  "Show source file structure"
-  (interactive)
-   (let* ((structure (ensime-rpc-structure-view))
-          (view (plist-get structure :view))
-          (buffer-name ensime-inspector-buffer-name))
-     (ensime-with-inspector-buffer
-      (buffer-name view t)
-      (dolist (item view)
-        (insert (format "%s" item))
-        (insert "\n")
-        ))))
