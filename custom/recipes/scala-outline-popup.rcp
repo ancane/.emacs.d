@@ -1,6 +1,0 @@
-(:name scala-outline-popup
-       :description "Scala outline popup"
-       :type github
-       :depends (popup scala-mode2)
-       :website "https://github.com/ancane/scala-outline-popup.git"
-       :pkgname "ancane/scala-outline-popup")
