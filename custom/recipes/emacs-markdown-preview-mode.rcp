@@ -3,6 +3,5 @@
        :type github
        :pkgname "ancane/markdown-preview-mode"
        :branch "flycheck"
-       :depends (websocket
-                 markdown-mode)
+       :depends (websocket markdown-mode uuidgen web-server)
        )

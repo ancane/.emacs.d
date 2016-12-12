@@ -55,7 +55,7 @@
    projectile
    web-mode
    markdown-mode
-   markdown-preview-mode
+   emacs-markdown-preview-mode
    magit
    less-css-mode
    exec-path-from-shell

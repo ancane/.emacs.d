@@ -6,9 +6,10 @@
 (global-font-lock-mode 1)
 
 ;; UI settings
+(scroll-bar-mode -1)
+(horizontal-scroll-bar-mode -1)
 (menu-bar-mode   -1)
 (tool-bar-mode   -1)
-(scroll-bar-mode -1)
 
 (line-number-mode t)
 (column-number-mode t)
