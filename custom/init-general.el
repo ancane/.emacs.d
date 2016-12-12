@@ -12,7 +12,7 @@
 
 (line-number-mode t)
 (column-number-mode t)
-(global-linum-mode t)
+;;(global-linum-mode t)
 (electric-pair-mode t)
 (show-paren-mode t)
 (global-auto-revert-mode t)
