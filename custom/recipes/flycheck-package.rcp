@@ -1,6 +1,0 @@
-(:name flycheck-package
-       :description "Flycheck package"
-       :type github
-       :depends (flycheck)
-       :website "https://github.com/purcell/flycheck-package.git"
-       :pkgname "purcell/flycheck-package")

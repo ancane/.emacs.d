@@ -1,5 +1,0 @@
-(:name emacs-ido-yes-or-no
-       :description "ido-yes-or-no"
-       :type github
-       :website "https://github.com/DarwinAwardWinner/ido-yes-or-no"
-       :pkgname "DarwinAwardWinner/ido-yes-or-no")

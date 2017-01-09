@@ -45,7 +45,7 @@
 ;; Remove top information bar
 (defadvice ibuffer-update-title-and-summary (after remove-column-titles)
   (with-current-buffer "*Ibuffer*"
-    (toggle-read-only 0)
+    (read-only-mode 0)
     (goto-char 1)
     (search-forward "-\n" nil t)
     (delete-region 1 (point))

@@ -25,25 +25,18 @@
    popup
    websocket
    color-theme
-   ace-jump-mode
-   emacs-ido-yes-or-no
+   ido-yes-or-no
    ido-ubiquitous
-   flx ;; flx-ido
+   flx
    ido-vertical-mode
    json-reformat
-   js2-mode
    restclient
    mark-multiple
    smex
-   emmet-mode
-   helm
-   helm-ag
-   emacs-popup-switcher ;;   popup-switcher
+   popup-switcher
    expand-region
    emacs-nav
    emacs-powerline
-   emacs-etags-select
-   ;;auto-complete
    company-mode
    slime
    elisp-slime-nav
@@ -51,14 +44,12 @@
    move-text
    goto-last-change
    old-fashioned-undo
-   haskell-mode
    projectile
    web-mode
    markdown-mode
    markdown-preview-mode
+   git-commit-mode
    magit
-   less-css-mode
-   exec-path-from-shell
    scala-mode
    sbt-mode
    org-mode
@@ -66,10 +57,10 @@
    emacs-popup-imenu
    clojure-mode
    cider
+   clj-refactor
+   clojure-snippets
    yasnippet
    which-key
-;;   ensime
-;;   emacs-ensime
    )
  )
 

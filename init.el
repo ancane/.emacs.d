@@ -24,12 +24,16 @@
    (quote
     ("^[.]$" "~$" "[.]elc$" "[.]pyc$" "[.]o$" "[.]bak$" "^_MTN$" "^blib$" "^CVS$" "^RCS$" "^SCCS$" "^_darcs$" "^_sgbak$" "^autom4te.cache$" "^cover_db$" "^_build$" "^[.]git$" "^[.]ensime")))
  '(nav-width 32)
- '(package-selected-packages (quote (package-lint web-server queue let-alist)))
+ '(package-selected-packages
+   (quote
+    (inflections queue ido-yes-or-no package-lint web-server let-alist)))
  '(projectile-keymap-prefix (kbd "C-c C-p"))
  '(restclient-print-curl t)
  '(safe-local-variable-values
    (quote
-    ((whitespace-style face tabs trailing lines-tail)
+    ((checkdoc-package-keywords-flag)
+     (bug-reference-bug-regexp . "#\\(?2:[[:digit:]]+\\)")
+     (whitespace-style face tabs trailing lines-tail)
      (eval ignore-errors "Write-contents-functions is a buffer-local alternative to before-save-hook"
 	   (add-hook
 	    (quote write-contents-functions)
@@ -49,9 +53,9 @@
 (add-to-list 'load-path "~/.emacs.d/custom")
 
 ;; Load custom init files
+(load "init-package.el")
 (load "init-general.el")
 (load "init-el-get.el")
-(load "init-package.el")
 (load "init-func.el")
 (load "init-ibuffer.el")
 (load "init-keys.el")
@@ -65,9 +69,3 @@
  '(mode-line ((t (:foreground "#030303" :background "#FFA319" :box nil))))
  '(mode-line-inactive ((t (:foreground "#f9f9f9" :background "#666666" :box nil))))
  '(popup-isearch-match ((t (:inherit font-lock-keyword-face :background "yellow" :foreground "black" :weight bold)))))
-
-;; (load (expand-file-name "~/quicklisp/slime-helper.el"))
-;; Replace "sbcl" with the path to your implementation
-;; (setq inferior-lisp-program "sbcl")
-
-

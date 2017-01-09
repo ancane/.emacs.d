@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: defproject
+# key: project
+# --
+(defproject ${1:`(file-name-base (directory-file-name (file-name-directory (buffer-file-name))))`} "0.1.0-SNAPSHOT"
+  :description "$2"
+  :url "$3"
+  :license {:name "GNU General Public License"
+            :url "http://www.gnu.org/licenses/gpl.html"}
+  :dependencies [[org.clojure/clojure "1.8.0"]]
+  :target-path "target/%s"
+  :profiles {:uberjar {:aot :all}
+             :dev {:plugins []
+                   :dependencies []
+                   :source-paths ["dev"]}})

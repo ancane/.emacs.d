@@ -1,0 +1,14 @@
+#name : Doctype HTML 5
+#key : html5
+# --
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>$1</title>
+  </head>
+  <body>
+    $2
+  </body>
+</html>

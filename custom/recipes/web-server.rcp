@@ -1,5 +1,0 @@
-(:name web-server
-       :description "web server running Emacs Lisp handlers"
-       :type github
-       :pkgname "eschulte/emacs-web-server"
-       )
