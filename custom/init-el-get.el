@@ -33,6 +33,7 @@
    restclient
    mark-multiple
    smex
+   exec-path-from-shell
    popup-switcher
    expand-region
    emacs-nav
