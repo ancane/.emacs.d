@@ -49,7 +49,6 @@
    web-mode
    markdown-mode
    markdown-preview-mode
-   git-commit-mode
    magit
    scala-mode
    sbt-mode
