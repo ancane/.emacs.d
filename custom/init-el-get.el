@@ -22,13 +22,14 @@
    s
    dash
    ag
+   emacs-memoize
    popup
    websocket
    color-theme
    ido-yes-or-no
-   ido-ubiquitous
-   flx
+   ido-completing-read-plus
    ido-vertical-mode
+   flx
    json-reformat
    restclient
    mark-multiple

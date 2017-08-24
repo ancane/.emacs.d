@@ -1,0 +1,6 @@
+(:name ido-completing-read-plus
+       :description "Use ido (nearly) everywhere"
+       :website "https://github.com/DarwinAwardWinner/ido-completing-read-plus"
+       :type github
+       :depends (cl-lib emacs-memoize)
+       :pkgname "DarwinAwardWinner/ido-completing-read-plus")

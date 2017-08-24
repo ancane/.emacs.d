@@ -1,11 +1,13 @@
 (require 'ido)
 (require 'flx-ido)
 (require 'recentf)
-(require 'ido-ubiquitous)
-;(require 'ido-yes-or-no)
+(require 'ido-completing-read+)
+
+;;(require 'ido-yes-or-no)
 
 (ido-mode t)
-(ido-ubiquitous t)
+(ido-everywhere 1)
+(ido-ubiquitous-mode 1)
 
 (flx-ido-mode t)
 
