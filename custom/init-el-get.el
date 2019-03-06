@@ -40,8 +40,8 @@
    emacs-nav
    emacs-powerline
    company-mode
-   slime
-   elisp-slime-nav
+   ;; slime
+   ;; elisp-slime-nav
    paredit
    move-text
    goto-last-change
@@ -53,13 +53,13 @@
    magit
    scala-mode
    sbt-mode
-   org-mode
+   ;; org-mode
    google-translate
    emacs-popup-imenu
-   clojure-mode
-   cider
-   clj-refactor
-   clojure-snippets
+   ;; clojure-mode
+   ;; cider
+   ;; clj-refactor
+   ;; clojure-snippets
    yasnippet
    which-key
    )

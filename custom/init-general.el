@@ -1,7 +1,11 @@
 
 ;; Font
-(add-to-list 'default-frame-alist '(font . "-xos4-terminus-bold-*-normal-*-18-180-72-72-c-100-koi8-r"))
-(set-default-font "-xos4-terminus-bold-*-normal-*-18-180-72-72-c-100-koi8-r")
+(when
+  (string-equal system-type "gnu/linux")
+  (progn 
+    (add-to-list 'default-frame-alist '(font . "-xos4-terminus-bold-*-normal-*-18-180-72-72-c-100-koi8-r"))
+    (set-default-font "-xos4-terminus-bold-*-normal-*-18-180-72-72-c-100-koi8-r")
+  ))
 
 (global-font-lock-mode 1)
 
