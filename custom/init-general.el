@@ -5,7 +5,15 @@
   (progn 
     (add-to-list 'default-frame-alist '(font . "-xos4-terminus-bold-*-normal-*-18-180-72-72-c-100-koi8-r"))
     (set-default-font "-xos4-terminus-bold-*-normal-*-18-180-72-72-c-100-koi8-r")
-  ))
+    ))
+
+(when
+  (string-equal system-type "darwin")
+  (progn
+    (add-to-list 'default-frame-alist '(font . "-*-Menlo-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1"))
+    (set-default-font "-*-Menlo-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
+    ))
+
 
 (global-font-lock-mode 1)
 
@@ -17,7 +25,7 @@
 
 (line-number-mode t)
 (column-number-mode t)
-;;(global-linum-mode t)
+(global-linum-mode t)
 (electric-pair-mode t)
 (show-paren-mode t)
 (global-auto-revert-mode t)

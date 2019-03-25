@@ -29,6 +29,9 @@
  '(package-selected-packages
    (quote
     (atom-one-dark-theme inflections queue ido-yes-or-no package-lint web-server let-alist)))
+ '(powerline-display-hud nil)
+ '(powerline-display-mule-info nil)
+ '(powerline-gui-use-vcs-glyph t)
  '(projectile-keymap-prefix (kbd "C-c C-p"))
  '(restclient-print-curl t)
  '(safe-local-variable-values

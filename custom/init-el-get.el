@@ -38,7 +38,8 @@
    popup-switcher
    expand-region
    emacs-nav
-   emacs-powerline
+   ;;   emacs-powerline
+   powerline
    company-mode
    ;; slime
    ;; elisp-slime-nav
